@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
-import { Recycle, Mail, Lock, Shield, Sparkles } from "lucide-react";
+import { Recycle, Mail, Lock } from "lucide-react";
 import { motion } from "motion/react";
 import { api, getCurrentUser } from "../../utils/api";
 import { toast } from "sonner";
@@ -62,14 +62,6 @@ export function LoginPage() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const fillDemoAccount = (email: string, pass: string) => {
-    setFormData((prev) => ({
-      ...prev,
-      email,
-      password: pass,
-    }));
-    setIsSignUp(false);
-  };
 
   return (
     <div className="flex min-h-screen items-center justify-center px-4 py-12">
@@ -96,36 +88,6 @@ export function LoginPage() {
               </p>
             </div>
 
-            {/* Quick Demo Credentials Widget */}
-            <div className="rounded-xl border border-primary/20 bg-card/80 p-5 backdrop-blur shadow-sm space-y-3">
-              <div className="flex items-center gap-2 text-xs font-semibold uppercase text-primary">
-                <Sparkles className="h-4 w-4" />
-                <span>Instant Demo Access</span>
-              </div>
-              <div className="flex flex-wrap gap-2 text-xs">
-                <button
-                  type="button"
-                  onClick={() => fillDemoAccount("lijashree@college.edu", "admin123")}
-                  className="rounded-lg border border-primary/30 bg-primary/10 px-3 py-1.5 text-primary hover:bg-primary/20 transition-colors flex items-center gap-1.5"
-                >
-                  <Shield className="h-3 w-3" /> Admin (Lijashree)
-                </button>
-                <button
-                  type="button"
-                  onClick={() => fillDemoAccount("krishnapriya@college.edu", "user123")}
-                  className="rounded-lg border border-border bg-card px-3 py-1.5 text-foreground hover:bg-muted transition-colors"
-                >
-                  Student (Krishnapriya)
-                </button>
-                <button
-                  type="button"
-                  onClick={() => fillDemoAccount("mithuna@college.edu", "user123")}
-                  className="rounded-lg border border-border bg-card px-3 py-1.5 text-foreground hover:bg-muted transition-colors"
-                >
-                  Student (Mithuna)
-                </button>
-              </div>
-            </div>
           </div>
         </motion.div>
 
