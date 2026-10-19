@@ -159,6 +159,9 @@ export function RequestsPage() {
                   <img
                     src={request.item?.imageUrl || "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=400"}
                     alt={request.itemTitle || request.item?.title}
+                    onError={(e) => {
+                      (e.currentTarget as HTMLImageElement).src = "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=400";
+                    }}
                     className="h-full w-full object-cover"
                   />
                 </div>

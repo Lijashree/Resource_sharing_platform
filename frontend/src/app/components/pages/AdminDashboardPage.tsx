@@ -204,6 +204,9 @@ export function AdminDashboardPage() {
                           <img
                             src={item.imageUrl || "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=400"}
                             alt={item.title}
+                            onError={(e) => {
+                              (e.currentTarget as HTMLImageElement).src = "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=400";
+                            }}
                             className="h-12 w-12 rounded-lg object-cover"
                           />
                           <div>
